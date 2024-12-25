@@ -1,0 +1,154 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Navbar Styling */
+nav {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav .nav-link {
+  color: #333333;
+  font-weight: 600;
+}
+nav .nav-link:hover {
+  color: #f7ad4e;
+}
+nav .navbar-brand {
+  color: #d69031;
+  font-weight: 700;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+  color: #ffffff;
+  background-color: #d69031; /* Matches your theme */
+  border: 2px solid #d69031;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #f7ad4e; /* Lighter shade for hover */
+  border-color: #f7ad4e;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 20px 0;
+  margin-top: auto;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+footer a {
+  color: #d69031;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #f7ad4e;
+}
+/* Custom Table Styling */
+.table-hover tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Custom Badges */
+.badge {
+  font-size: 0.9rem;
+  padding: 0.4em 0.7em;
+}
+
+/* Improved Buttons */
+.btn-outline-danger {
+  border: 2px solid #dc3545;
+  background-color: transparent;
+  color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-outline-primary {
+  background-color: transparent;
+  border: 2px solid #d69031;
+  color: #d69031;
+}
+.btn-outline-primary:hover {
+  background-color: #d69031;
+  border: 2px solid #d69031;
+  color: white;
+}
+.text-primary {
+  color: #d69031 !important;
+  font-weight: bold !important;
+}
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #d69031;
+  --bs-btn-border-color: #d69031;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #d69031;
+  --bs-btn-hover-border-color: #d69031;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #b57e31;
+  --bs-btn-active-border-color: #d69031;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #d69031;
+  --bs-btn-disabled-border-color: #d69031;
+}
+.btn {
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem #e2b473;
+}
+.nav-link:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #e2b473;
+}
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: #e2ad62;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #e2b473;
+}
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  color: var(--bs-btn-active-color);
+  background-color: #d69031;
+  border-color: #e2ad62;
+}
+.btn:focus-visible {
+  color: var(--bs-btn-hover-color);
+  background-color: #d69031;
+  border-color: #e2ad62;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #e2b473;
+}
+::selection {
+  background-color: #d69031;
+  color: white;
+}
+.form-check-input:focus {
+  border-color: #e2ad62;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #e2b473;
+}
+.form-check-input:checked {
+  background-color: #d69031;
+  border-color: #d69031;
+}
+
+main {
+  flex: 1;
+}

@@ -1,0 +1,97 @@
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="My App" />
+<link rel="apple-touch-icon" href="/static/images/fyaylogopng.png" />
+
+{% extends 'layout.html' %} {% block title %} Login {% endblock %} {% block
+content %}
+<div class="container">
+  <h1 class="text-center my-4 fw-bold text-primary">Login</h1>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div class="alert-container">
+    {% for category, message in messages %}
+    <div
+      class="alert alert-{{ category }} alert-dismissible fade show shadow-sm rounded-3"
+      role="alert"
+    >
+      {{ message }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <!-- Login Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title fw-bold text-center text-primary">
+            Welcome Back!
+          </h5>
+          <p class="text-center text-muted">
+            Enter your credentials to access your account.
+          </p>
+          <form method="POST" action="{{ url_for('login') }}">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="btn btn-outline-primary rounded-pill px-4 py-2"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+          <p class="text-center mt-3">
+            Don't have an account?
+            <a href="{{ url_for('register') }}" class="text-primary fw-bold"
+              >Register here</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Auto-Fade Alerts Script -->
+<script>
+  setTimeout(function () {
+    const alerts = document.querySelectorAll(".alert");
+    alerts.forEach((alert) => {
+      alert.classList.add("fade");
+      setTimeout(() => alert.remove(), 500);
+    });
+  }, 10000);
+</script>
+{% endblock %}

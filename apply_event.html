@@ -1,0 +1,121 @@
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="My App" />
+<link rel="apple-touch-icon" href="/static/images/fyaylogopng.png" />
+
+{% extends 'layout.html' %} {% block title %} Apply for Event {% endblock %} {%
+block content %}
+<div class="container">
+  <h1 class="text-center my-4">Apply for Event</h1>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div class="alert-container">
+    {% for category, message in messages %}
+    <div
+      class="alert alert-{{ category }} alert-dismissible fade show"
+      role="alert"
+    >
+      {{ message }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ event['event_name'] }}</h5>
+          <p class="card-text">{{ event['description'] }}</p>
+          <p class="card-text">
+            <strong>Location:</strong> {{ event['location'] }}
+          </p>
+          <p class="card-text"><strong>Date:</strong> {{ event['date'] }}</p>
+        </div>
+      </div>
+      <form
+        method="POST"
+        action="{{ url_for('apply_event', event_id=event['id']) }}"
+      >
+        <div class="mb-3">
+          <label for="full_name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="full_name"
+            name="full_name"
+            value="{{ session['user_name'] }}"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            value="{{ session['user_email'] }}"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Event Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            name="date"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="hours" class="form-label">Number of Hours</label>
+          <input
+            type="number"
+            class="form-control"
+            id="hours"
+            name="hours"
+            placeholder="Enter the number of hours you can participate"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label"
+            >Description (Optional)</label
+          >
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            rows="3"
+            placeholder="Additional information (optional)"
+          ></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Apply</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Auto-Fade Alerts Script -->
+<script>
+  setTimeout(function () {
+    const alerts = document.querySelectorAll(".alert");
+    alerts.forEach((alert) => {
+      alert.classList.add("fade");
+      setTimeout(() => alert.remove(), 500); // Remove element after fade-out
+    });
+  }, 10000); // 10 seconds
+</script>
+{% endblock %}

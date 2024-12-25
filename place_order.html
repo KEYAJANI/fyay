@@ -1,0 +1,160 @@
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="My App" />
+<link rel="apple-touch-icon" href="/static/images/fyaylogopng.png" />
+
+{% extends 'layout.html' %} {% block title %} Purchases {% endblock %} {% block
+content %}
+<div class="container">
+  <h1 class="text-center my-4 fw-bold">Purchases</h1>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div class="alert-container">
+    {% for category, message in messages %}
+    <div
+      class="alert alert-{{ category }} alert-dismissible fade show shadow-sm rounded-3"
+      role="alert"
+    >
+      {{ message }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <!-- Order Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold text-center">
+            Place a New Purchase
+          </h5>
+          <form method="POST" action="{{ url_for('place_order') }}">
+            <div class="mb-3">
+              <label for="product_name" class="form-label">Product Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="product_name"
+                name="product_name"
+                placeholder="Enter the product name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input
+                type="number"
+                class="form-control"
+                id="quantity"
+                name="quantity"
+                placeholder="Enter the quantity"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="price_per_unit" class="form-label"
+                >Price Per Unit</label
+              >
+              <input
+                type="number"
+                step="0.01"
+                class="form-control"
+                id="price_per_unit"
+                name="price_per_unit"
+                placeholder="Enter the price per unit"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label"
+                >Description (Optional)</label
+              >
+              <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                rows="3"
+                placeholder="Additional details about the product (optional)"
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="btn btn-outline-primary rounded-pill px-4 py-2"
+              >
+                Confirm
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Purchases Section -->
+  <hr class="my-5" />
+  <h2 class="text-center my-4 fw-bold">Past Purchases</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Price Per Unit</th>
+          <th>Total Price</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ order['product_name'] }}</td>
+          <td>{{ order['quantity'] }}</td>
+          <td>${{ order['price_per_unit'] }}</td>
+          <td>${{ order['total_price'] }}</td>
+          <td>{{ order['description'] or 'N/A' }}</td>
+          <td>{{ order['date'] }}</td>
+          <td>
+            <form
+              method="POST"
+              action="{{ url_for('delete_order', order_id=order['id']) }}"
+            >
+              <button
+                type="submit"
+                class="btn btn-outline-danger btn-sm rounded-pill"
+              >
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Auto-Fade Alerts Script -->
+<script>
+  setTimeout(function () {
+    const alerts = document.querySelectorAll(".alert");
+    alerts.forEach((alert) => {
+      alert.classList.add("fade");
+      setTimeout(() => alert.remove(), 500);
+    });
+  }, 10000);
+</script>
+{% endblock %}

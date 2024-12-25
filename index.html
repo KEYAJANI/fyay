@@ -1,0 +1,49 @@
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="My App" />
+<link rel="apple-touch-icon" href="/static/images/fyaylogopng.png" />
+
+{% extends 'layout.html' %} {% block title %} Event Organizer {% endblock %} {%
+block content %}
+<div class="container">
+  <h1 class="text-center my-4">Upcoming Events</h1>
+  {% if events %}
+  <div class="row">
+    {% for event in events %}
+    <div class="col-md-4 mb-4">
+      <div
+        class="card h-100 shadow-sm border-0 rounded-4"
+        style="padding: 1.5rem"
+      >
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">
+            {{ event['event_name'] }}
+          </h5>
+          <p class="card-text text-muted small">{{ event['description'] }}</p>
+          <p class="card-text">
+            <strong>Location:</strong> {{ event['location'] }}
+          </p>
+          <p class="card-text"><strong>Date:</strong> {{ event['date'] }}</p>
+        </div>
+        <div class="card-footer text-center bg-white border-0">
+          {% if event['is_applied'] %}
+          <button class="btn btn-secondary" disabled>Applied</button>
+          {% else %}
+          <a
+            href="{{ url_for('apply_event', event_id=event['id']) }}"
+            class="btn btn-primary"
+            >Apply Now</a
+          >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-center">
+    No events available at the moment. Please check back later!
+  </p>
+  {% endif %}
+</div>
+{% endblock %}
