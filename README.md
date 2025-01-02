@@ -103,3 +103,5 @@ The project employs a professional color palette to enhance user experience:
 - Add email notifications for event confirmations and updates.
 
 Fyay represents a blend of practical functionality and efficient design, offering a streamlined experience for users and administrators alike.
+
+Created by Karrar Esbeyajani
