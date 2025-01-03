@@ -12,7 +12,7 @@ def get_db_connection():
         conn: SQLite connection object
     """
     conn = sqlite3.connect("fyay.db", timeout=10)
-    conn.row_factory = sqlite3.Row  # Access database rows like dictionaries
+    conn.row_factory = sqlite3.Row  
     return conn
 
 @app.route('/')
