@@ -1,12 +1,193 @@
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="My App" />
-<link rel="apple-touch-icon" href="/static/images/fyaylogopng.png" />
+{% extends 'layout.html' %} {% block title %} Event Organizer {% endblock %}
+{%block content %}
+<div class="main-container">
+  <!-- HERO SECTION -->
 
-{% extends 'layout.html' %} {% block title %} Event Organizer {% endblock %} {%
-block content %}
-<div class="container">
-  <h1 class="text-center my-4">Upcoming Events</h1>
+  <div class="hero-container">
+    <h2 class="hero-container-head-line">
+      Effortless Event Solutions with Fyay
+    </h2>
+    <p class="hero-container-sub-line">
+      Simplify your events with seamless planning and management tools.
+    </p>
+    <div class="div-btn hero-container-div-btn">
+      <a class="hero-container-a btn" href="">Book a Event</a>
+    </div>
+  </div>
+  <!-- SERVICE SECTION -->
+  <div class="service-container">
+    <div class="overlay-background"></div>
+    <div class="service-container-first-row">
+      <h2 class="service-container-first-row-headline">
+        Explore What's Possible with Fyay
+      </h2>
+      <p class="service-conatiner-first-row-subline">
+        Streamlined solutions crafted for corporate events to ensure flawless
+        planning, execution, and client satisfaction.
+      </p>
+    </div>
+    <div class="service-container-second-row">
+      <div class="service-container-second-row-cards">
+        <div class="service-container-second-row-cards-first-row">
+          <p class="service-container-second-row-cards-first-row-icon">icon</p>
+          <p
+            class="service-container-second-row-cards-first-row-index indexing"
+          >
+            001
+          </p>
+        </div>
+        <h4 class="service-container-second-row-cards-second-row-h4">
+          Tailored Event Solutions
+        </h4>
+        <p class="service-container-second-row-cards-third-row-paragraph">
+          Create exceptional corporate events designed to meet your clients'
+          needs. From concept to execution, we provide the tools to make every
+          event unique and memorable.
+        </p>
+      </div>
+      <div class="service-container-second-row-cards">
+        <div class="service-container-second-row-cards-first-row">
+          <p class="service-container-second-row-cards-first-row-icon">icon</p>
+          <p
+            class="service-container-second-row-cards-first-row-index indexing"
+          >
+            002
+          </p>
+        </div>
+        <h4 class="service-container-second-row-cards-second-row-h4">
+          Seamless Client Collaboration
+        </h4>
+        <p class="service-container-second-row-cards-third-row-paragraph">
+          Elevate client experiences with intuitive tools and clear
+          communication. Strengthen partnerships by involving clients in the
+          process and keeping them informed every step of the way.
+        </p>
+      </div>
+      <div class="service-container-second-row-cards">
+        <div class="service-container-second-row-cards-first-row">
+          <p class="service-container-second-row-cards-first-row-icon">icon</p>
+          <p
+            class="service-container-second-row-cards-first-row-index indexing"
+          >
+            003
+          </p>
+        </div>
+        <h4 class="service-container-second-row-cards-second-row-h4">
+          Smart Resource Management
+        </h4>
+        <p class="service-container-second-row-cards-third-row-paragraph">
+          Optimize resource allocation and inventory for every event. Keep track
+          of supplies, manage costs, and ensure nothing is overlooked to deliver
+          a seamless experience.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- SEC-SERVICE SECTION -->
+  <div class="sec-service-container">
+    <div class="sec-service-container-first-row">
+      <h2 class="sec-service-container-first-row-headline">
+        Built-in Expertise for Memorable Events
+      </h2>
+      <p class="sec-service-conatiner-first-row-subline">
+        Fyay specializes in crafting unique corporate events that leave lasting
+        impressions.
+      </p>
+    </div>
+    <div class="sec-service-container-second-row-cards">
+      <div class="sec-service-container-second-row-cards-first-column">
+        <p
+          class="sec-service-container-second-row-cards-first-column-index indexing"
+        >
+          001
+        </p>
+        <h3 class="sec-service-container-second-row-cards-first-column-h3">
+          Conferences and Seminars
+        </h3>
+        <p
+          class="sec-service-container-second-row-cards-first-column-paragraph"
+        >
+          Professional and seamless events tailored for knowledge-sharing and
+          networking opportunities.
+        </p>
+        <a
+          class="sec-service-container-second-row-cards-first-column-a btn"
+          href=""
+          >Our Service</a
+        >
+      </div>
+      <div class="sec-service-container-second-row-cards-second-column">
+        <img
+          class="sec-service-container-second-row-cards-second-column-img img"
+          src="/static/images/image0.png"
+          alt="Conferences and Seminars"
+        />
+      </div>
+    </div>
+    <div class="sec-service-container-second-row-cards">
+      <div class="sec-service-container-second-row-cards-first-column">
+        <p
+          class="sec-service-container-second-row-cards-first-column-index indexing"
+        >
+          002
+        </p>
+        <h3 class="sec-service-container-second-row-cards-first-column-h3">
+          Corporate Celebrations
+        </h3>
+        <p
+          class="sec-service-container-second-row-cards-first-column-paragraph"
+        >
+          Celebrate achievements with well-planned, memorable corporate parties.
+        </p>
+        <a
+          class="sec-service-container-second-row-cards-first-column-a btn"
+          href=""
+          >Our Service</a
+        >
+      </div>
+      <div class="sec-service-container-second-row-cards-second-column">
+        <img
+          class="sec-service-container-second-row-cards-second-column-img img"
+          src="/static/images/image1.png"
+          alt="Corporate Celebrations"
+        />
+      </div>
+    </div>
+    <div class="sec-service-container-second-row-cards">
+      <div class="sec-service-container-second-row-cards-first-column">
+        <p
+          class="sec-service-container-second-row-cards-first-column-index indexing"
+        >
+          003
+        </p>
+        <h3 class="sec-service-container-second-row-cards-first-column-h3">
+          Product Launches
+        </h3>
+        <p
+          class="sec-service-container-second-row-cards-first-column-paragraph"
+        >
+          Create impactful launches that captivate audiences and highlight your
+          brand.
+        </p>
+        <a
+          class="sec-service-container-second-row-cards-first-column-a btn"
+          href=""
+          >Our Service</a
+        >
+      </div>
+      <div class="sec-service-container-second-row-cards-second-column">
+        <img
+          class="sec-service-container-second-row-cards-second-column-img img"
+          src="/static/images/image2.png"
+          alt="Product Launches"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock content %}
+
+<!-- <h1 class="text-center my-4">Upcoming Events</h1>
   {% if events %}
   <div class="row">
     {% for event in events %}
@@ -45,5 +226,4 @@ block content %}
     No events available at the moment. Please check back later!
   </p>
   {% endif %}
-</div>
-{% endblock %}
+</div> -->
