@@ -26,7 +26,7 @@ def index():
     # Fetch all events
     events = conn.execute('SELECT * FROM events').fetchall()
 
-    # Determine which events the user adhas applied to
+    
     applied_event_ids = []
     if 'user_id' in session:
         applied_events = conn.execute(
